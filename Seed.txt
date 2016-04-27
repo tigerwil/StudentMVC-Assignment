@@ -1,0 +1,32 @@
+//1.  Add Categories
+            var categories = new List<Category>
+            {
+                new Category {CategoryName="Camping" },
+                new Category {CategoryName="Clothing" },
+                new Category {CategoryName="Fishing" },
+                new Category {CategoryName="Hunting" }
+            };
+
+            categories.ForEach(c => context.Categories.AddOrUpdate(n => n.CategoryName, c));
+            context.SaveChanges();
+
+
+            //2.  Add Products
+            var products = new List<Product>
+            {
+                //Camping
+                new Product {ProductName="Bunkhouse Family Tent", Description="The dome shape is able to withstand winds better than many straight-wall tents and also allows rain or snow to naturally slide off. The tent and rain fly are both made of weather-resistant polyester-taffeta coated with polyurethane for added protection from precipitation. Sturdy fiberglass poles equipped with steel ferrules ensure easy and sturdy setup. The large D-shaped front door and window feature strong polyester zippers, as do the additional reverse-U-shaped windows. The medium-sized model has four windows and the large model has six. Window and roof mesh are fine polyester to keep bugs at bay while allowing air to circulate inside. The bathtub-style floor is durable 210-denier, 1,200mm polyester with polyurethane waterproofing. An interior center height of more than 80\" allows for ample headroom. Two mesh pockets inside for storing small items(four in large version).Both versions come with steel V - style stakes, 3mm - diameter guy lines and a weather - resistant carry bag.", ImageName="tent_family.jpg", UnitPrice=379.99M, CategoryID=1 },
+                new Product {ProductName="Eureka Screen Tent", Description="Eureka! Northern Breeze Screen Tent.  Easy to set up umbrella design assembles in minutes. All polyester construction provides enhanced UV protection. This shelter features attached external rain curtains that can be used as shade awnings. The doors use a unique 3 zipper system that allows for different opening options depending on conditions.The shock - corded 3cm(1\") aluminum frame is the best on the market. 3.7 x 3.7 x 2.6m (12' x 12' x 8'5\"). 10.4 kg(23 lb.)", ImageName="tent_screen.jpg", UnitPrice=549.99M, CategoryID=1 },
+                //Clothing
+                new Product {ProductName="Carhartt Camo Lined Duck Active Jacket", Description="This jacket features a quilted-flannel lining with camouflage pattern in body. Quilted nylon lining in sleeves. Attached quilted-flannel-lined hood with draw-cord closure. Two inside pockets. Two lower-front pockets. Rib-knit cuffs and waistbad. Triple-stitched main seams.", ImageName="jacket_camo_m.jpg", UnitPrice=99.98M, CategoryID=2 },
+                new Product {ProductName="Columbia Women's Sweet As", Description="This comfortable, flattering, and lightweight zip-front jacket makes the perfect partner to active adventure in variable weather conditions—crafted from performance stretch softshell outfitted with water-repellent technology so it moves with your body and shields you from sprinkles without overheating you. ", ImageName="jacket_columbia_w.jpg", UnitPrice=49.97M, CategoryID=2 },
+                //Fishing
+                new Product {ProductName="Abu Garcia Veritas 2.0 Casting Rod", Description="The updated Veritas™ series continues the tradition of lightweight design and superior sensitivity with a renewed focus on strength. By developing a Spiral Core Construction process with our 30 Ton graphite blanks, our engineers were able to significantly improve break strength without increasing weight.", ImageName="rod_casting_abugarcia.jpg", UnitPrice=99.99M, CategoryID=3 },
+                new Product {ProductName="Daiwa Procyon Spinning Rods", Description="Daiwa Procyon Spinning Rods are designed to handle a wide variety of fresh water and some light saltwater angling applications. It has a IM-7 graphite construction, micro-pitch blank taping, hook keeper and lightweight split grip cork handles.", ImageName="rod_spinning_daiwa.jpg", UnitPrice=74.99M, CategoryID=3},
+                //Hunting
+                new Product {ProductName="APA Copperhead Bow", Description="If you are looking for a high quality bow look no further than the APA Copperhead; this bow offers single cam technology, providing speed along with a gentle draw cycle.", ImageName="bow_apa.jpg", UnitPrice=749.97M, CategoryID=4 },
+                new Product {ProductName="Trophy Ridge React 5-Pin Sight", Description="This is the new Trophy Ridge React sight with Smart Pin Technology, a revolutionary, tool-less sight system that once calibrated at 20 and 30 yards, makes your 40, 50, and 60 yard pins mathematically impossible to be inaccurate.", ImageName="sights_trophy.jpg", UnitPrice=189.99M, CategoryID=4 }
+            };
+
+            products.ForEach(p => context.Products.AddOrUpdate(i => i.ImageName, p));
+            context.SaveChanges();
